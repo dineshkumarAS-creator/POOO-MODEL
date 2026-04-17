@@ -1,0 +1,78 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+.project
+.idea
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configurations and tasks you actually
+# want to share with your team. However, if you'd rather maintain personal
+# settings, uncomment the next line and add .vscode/ to your .gitignore.
+# .vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Web related
+lib/generated_plugin_registrant.dart
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will regenerate these files for you
+android/key.properties
+android/app/src/main/res/values/strings.xml
+android/local.properties
+android/figgy_android.iml
+android/.gradle
+android/app/app.iml
+android/app/google-services.json
+
+# iOS related
+ios/Runner/GoogleService-Info.plist
+ios/Runner/GeneratedPluginRegistrant.h
+ios/Runner/GeneratedPluginRegistrant.m
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/DerivedData
+ios/.generated
+ios/Pods
+ios/.symlinks
+ios/Flutter/Config.xcconfig
+ios/ServiceDefinitions.json
+
+# Windows related
+build/
+windows/flutter/ephemeral/
+windows/flutter/generated_config.cmake
+
+# Backend / Python related
+figgy_backend/venv/
+figgy_backend/__pycache__/
+figgy_backend/*.db
+figgy_backend/*.log

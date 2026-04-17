@@ -1,7 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:figgy_app/theme/app_theme.dart';
 import 'package:figgy_app/features/shield/screens/claims_screen.dart';
 import 'package:figgy_app/features/shield/shield_theme.dart';
+
 
 /// Main-tab Claims list (mudiayalaba “Claims” pane).
 class ClaimsTabScreen extends StatelessWidget {

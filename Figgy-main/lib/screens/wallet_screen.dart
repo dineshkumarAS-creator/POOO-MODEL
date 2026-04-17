@@ -38,46 +38,47 @@ class _WalletScreenState extends State<WalletScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: AppColors.brandPrimary,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        toolbarHeight: 80,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white, size: 28),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'My wallet',
-          style: TextStyle(
-            fontWeight: FontWeight.w900,
-            color: Colors.white,
-            fontSize: 20,
-          ),
-        ),
-        centerTitle: false,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
-        ),
-      ),
       body: _loading
           ? const Center(child: CircularProgressIndicator(color: AppColors.brandPrimary))
-          : RefreshIndicator(
-              onRefresh: _load,
-              color: AppColors.brandPrimary,
-              child: ListView(
-                padding: const EdgeInsets.all(24),
-                children: [
-                  const SizedBox(height: 80), // Space for AppBar (extendBodyBehindAppBar)
-                  _buildMainBalanceCard(),
-                  const SizedBox(height: 32),
-                  _buildFilterTabs(),
-                  const SizedBox(height: 24),
-                  if (_txs.isEmpty) _buildEmptyState() else ..._txs.map(_buildTxTile),
-                  const SizedBox(height: 40),
-                ],
-              ),
+          : Column(
+              children: [
+                // Custom Rectangular Header (Guaranteed no curves)
+                Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 10, bottom: 20, left: 24, right: 24),
+                  decoration: const BoxDecoration(color: Color(0xFFFF5722)),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.arrow_back, color: Colors.white, size: 28),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                      const SizedBox(width: 8),
+                      const Text(
+                        'My wallet',
+                        style: TextStyle(fontWeight: FontWeight.w900, color: Colors.white, fontSize: 20),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: RefreshIndicator(
+                    onRefresh: _load,
+                    color: AppColors.brandPrimary,
+                    child: ListView(
+                      padding: const EdgeInsets.all(24),
+                      children: [
+                        _buildMainBalanceCard(),
+                        const SizedBox(height: 32),
+                        _buildFilterTabs(),
+                        const SizedBox(height: 24),
+                        if (_txs.isEmpty) _buildEmptyState() else ..._txs.map(_buildTxTile),
+                        const SizedBox(height: 40),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
     );
   }

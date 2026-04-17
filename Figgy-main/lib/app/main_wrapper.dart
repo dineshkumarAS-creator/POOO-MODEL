@@ -1,3 +1,4 @@
+// Hot reload triggered at 2026-04-17 13:08
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:figgy_app/core/navigation/main_tab_scope.dart';

@@ -6,6 +6,7 @@ import 'package:figgy_app/screens/registration_screen.dart';
 import 'package:figgy_app/screens/claim_processing_screen.dart';
 import 'package:figgy_app/screens/history_screen.dart';
 import 'package:figgy_app/screens/wallet_screen.dart';
+import 'package:figgy_app/screens/my_policies_screen.dart';
 import 'package:figgy_app/services/api_service.dart';
 import 'package:figgy_app/models/ride.dart';
 import 'package:figgy_app/services/policy_service.dart';
@@ -266,14 +267,68 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      extendBodyBehindAppBar: true,
-      appBar: _buildAppBar(context),
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 120), // Compensate for extended appbar (toolbarHeight 90 + status bar)
+            // Custom Rectangular Header (Not an AppBar)
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 20, bottom: 30, left: 24, right: 24),
+              decoration: const BoxDecoration(
+                color: Color(0xFFFF5722), // Vibrant Orange
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    width: 52,
+                    height: 52,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white.withOpacity(0.2), width: 2),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'f',
+                        style: TextStyle(
+                          color: Color(0xFFFF5722),
+                          fontWeight: FontWeight.w900,
+                          fontSize: 30,
+                          height: 1.1,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Expanded(
+                    child: Center(
+                      child: Text(
+                        'Profile',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          color: Colors.white,
+                          fontSize: 24,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.15),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.mail_outline_rounded,
+                      color: Colors.white,
+                      size: 26,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 32),
             _buildUserInfoCard(),
             const SizedBox(height: 24),
             _buildStatsRow(),
@@ -452,15 +507,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       ),
       title: Padding(
-        padding: const EdgeInsets.only(top: 10),
+        padding: const EdgeInsets.only(top: 20),
         child: Row(
           children: [
             Container(
-              width: 48,
-              height: 48,
-              decoration: const BoxDecoration(
+              width: 52,
+              height: 52,
+              decoration: BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
+                border: Border.all(color: Colors.white.withOpacity(0.2), width: 2),
               ),
               child: const Center(
                 child: Text(
@@ -468,7 +524,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   style: TextStyle(
                     color: AppColors.brandPrimary,
                     fontWeight: FontWeight.w900,
-                    fontSize: 28,
+                    fontSize: 30,
                     height: 1.1,
                   ),
                 ),
@@ -479,15 +535,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Text(
                   'Profile',
                   style: TextStyle(
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w800,
                     color: Colors.white,
-                    fontSize: 22,
+                    fontSize: 24,
                   ),
                 ),
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.15),
                 shape: BoxShape.circle,
@@ -495,14 +551,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: const Icon(
                 Icons.mail_outline_rounded,
                 color: Colors.white,
-                size: 24,
+                size: 26,
               ),
             ),
           ],
         ),
-      ),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.zero,
       ),
     );
   }
@@ -623,7 +676,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 '1 active plan', 
                 const Color(0xFFFFF3E0), 
                 const Color(0xFFE65100),
-                onTap: () => MainWrapper.of(context)?.setIndex(1), // Shield/Insurance tab
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const MyPoliciesScreen())),
               )),
             ],
           ),

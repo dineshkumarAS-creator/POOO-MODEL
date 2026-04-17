@@ -28,7 +28,7 @@ class HistoryScreen extends StatelessWidget {
         ),
         centerTitle: false,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+          borderRadius: BorderRadius.zero,
         ),
       ),
       body: ValueListenableBuilder<List<Ride>>(

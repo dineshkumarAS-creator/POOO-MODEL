@@ -53,7 +53,7 @@ class _ShieldTimelineTabScreenState extends State<ShieldTimelineTabScreen> {
           ],
         ),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+          borderRadius: BorderRadius.zero,
         ),
       ),
       body: SingleChildScrollView(

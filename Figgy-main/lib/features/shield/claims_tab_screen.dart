@@ -88,7 +88,7 @@ class ClaimsTabScreen extends StatelessWidget {
               ],
             ),
             shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+              borderRadius: BorderRadius.zero,
             ),
           ),
           body: const SafeArea(

@@ -502,7 +502,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       ),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(32)),
+        borderRadius: BorderRadius.zero,
       ),
     );
   }

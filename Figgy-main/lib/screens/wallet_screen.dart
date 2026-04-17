@@ -58,7 +58,7 @@ class _WalletScreenState extends State<WalletScreen> {
         ),
         centerTitle: false,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+          borderRadius: BorderRadius.zero,
         ),
       ),
       body: _loading

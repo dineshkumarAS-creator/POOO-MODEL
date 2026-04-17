@@ -1052,7 +1052,7 @@ class _DemandScreenState extends State<DemandScreen> {
         ],
       ),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+        borderRadius: BorderRadius.zero,
       ),
     );
   }
